@@ -3,22 +3,93 @@ package business_logic;
 import entity.Employee;
 import org.junit.Test;
 
-import java.util.Arrays;
 import java.util.List;
 
 import static entity.Employee.EmployeeBuilder.employee;
+import static java.time.LocalDate.of;
+import static java.time.Month.*;
+import static java.util.Arrays.asList;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class EmployeeComparatorBuilderTest {
 
     @Test
-    public void test() {
-        List<Employee> employees = Arrays.asList(employee().withFirstName("a").build(),
-                employee().withFirstName("b").build(),
-                employee().withFirstName("c").build(),
-                employee().withFirstName("d").build());
+    public void givenAListOfEmployees_whenSortingThemAscendingByFirstName_thenTheEmployeesAreSortedCorrectly() {
+        List<Employee> employees = asList(
+                employee().withFirstName("Carla").build(),
+                employee().withFirstName("Anna").build(),
+                employee().withFirstName("Danny").build(),
+                employee().withFirstName("Bobby").build()
+        );
+        List<Employee> expectedEmployees = asList(
+                employee().withFirstName("Anna").build(),
+                employee().withFirstName("Bobby").build(),
+                employee().withFirstName("Carla").build(),
+                employee().withFirstName("Danny").build()
+        );
 
-        new EmployeeComparatorBuilder().sortByFirstName(employees, false);
+        List<Employee> actualEmployees = new EmployeeComparatorBuilder().sortByFirstName(employees, true);
 
+        assertThat(actualEmployees).isEqualTo(expectedEmployees);
+    }
 
+    @Test
+    public void givenAListOfEmployees_whenSortingThemDescendingByFirstName_thenTheEmployeesAreSortedCorrectly() {
+        List<Employee> employees = asList(
+                employee().withFirstName("Carla").build(),
+                employee().withFirstName("Anna").build(),
+                employee().withFirstName("Danny").build(),
+                employee().withFirstName("Bobby").build()
+        );
+        List<Employee> expectedEmployees = asList(
+                employee().withFirstName("Danny").build(),
+                employee().withFirstName("Carla").build(),
+                employee().withFirstName("Bobby").build(),
+                employee().withFirstName("Anna").build()
+        );
+
+        List<Employee> actualEmployees = new EmployeeComparatorBuilder().sortByFirstName(employees, false);
+
+        assertThat(actualEmployees).isEqualTo(expectedEmployees);
+    }
+
+    @Test
+    public void givenAListOfEmployees_whenSortingThemAscendingByAge_thenTheEmployeesAreSortedCorrectly() {
+        List<Employee> employees = asList(
+                employee().withBirthDate(of(1992, JANUARY, 14)).build(),
+                employee().withBirthDate(of(1992, MARCH, 23)).build(),
+                employee().withBirthDate(of(1958, SEPTEMBER, 20)).build(),
+                employee().withBirthDate(of(1961, MAY, 19)).build()
+        );
+        List<Employee> expectedEmployees = asList(
+                employee().withBirthDate(of(1958, SEPTEMBER, 20)).build(),
+                employee().withBirthDate(of(1961, MAY, 19)).build(),
+                employee().withBirthDate(of(1992, JANUARY, 14)).build(),
+                employee().withBirthDate(of(1992, MARCH, 23)).build()
+        );
+
+        List<Employee> actualEmployees = new EmployeeComparatorBuilder().sortByAge(employees, true);
+
+        assertThat(actualEmployees).isEqualTo(expectedEmployees);
+    }
+
+    @Test
+    public void givenAListOfEmployees_whenSortingThemDesscendingByAge_thenTheEmployeesAreSortedCorrectly() {
+        List<Employee> employees = asList(
+                employee().withBirthDate(of(1992, JANUARY, 14)).build(),
+                employee().withBirthDate(of(1992, MARCH, 23)).build(),
+                employee().withBirthDate(of(1958, SEPTEMBER, 20)).build(),
+                employee().withBirthDate(of(1961, MAY, 19)).build()
+        );
+        List<Employee> expectedEmployees = asList(
+                employee().withBirthDate(of(1992, MARCH, 23)).build(),
+                employee().withBirthDate(of(1992, JANUARY, 14)).build(),
+                employee().withBirthDate(of(1961, MAY, 19)).build(),
+                employee().withBirthDate(of(1958, SEPTEMBER, 20)).build()
+        );
+
+        List<Employee> actualEmployees = new EmployeeComparatorBuilder().sortByAge(employees, false);
+
+        assertThat(actualEmployees).isEqualTo(expectedEmployees);
     }
 }
