@@ -9,6 +9,7 @@ public class Employee {
     private String lastName;
     private LocalDate birthDate;
     private String function;
+    private Long salary;
     private Genre genre;
 
     public String getFirstName() {
@@ -29,6 +30,32 @@ public class Employee {
 
     public Genre getGenre() {
         return genre;
+    }
+
+    public Long getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Long salary) {
+        this.salary = salary;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return Objects.equals(firstName, employee.firstName) &&
+                Objects.equals(lastName, employee.lastName) &&
+                Objects.equals(birthDate, employee.birthDate) &&
+                Objects.equals(function, employee.function) &&
+                Objects.equals(salary, employee.salary) &&
+                genre == employee.genre;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, birthDate, function, salary, genre);
     }
 
     public static class EmployeeBuilder {
@@ -62,6 +89,11 @@ public class Employee {
             return this;
         }
 
+        public EmployeeBuilder withSalary(Long salary) {
+            employee.salary = salary;
+            return this;
+        }
+
         public EmployeeBuilder withGenre(Genre genre) {
             employee.genre = genre;
             return this;
@@ -70,22 +102,5 @@ public class Employee {
         public Employee build() {
             return employee;
         }
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Employee employee = (Employee) o;
-        return Objects.equals(firstName, employee.firstName) &&
-                Objects.equals(lastName, employee.lastName) &&
-                Objects.equals(birthDate, employee.birthDate) &&
-                Objects.equals(function, employee.function) &&
-                genre == employee.genre;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(firstName, lastName, birthDate, function, genre);
     }
 }
