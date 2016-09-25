@@ -1,7 +1,6 @@
-package entity;
+package session1.solution.entity;
 
 import java.time.LocalDate;
-import java.util.Objects;
 
 public class Employee {
 
@@ -9,7 +8,7 @@ public class Employee {
     private String lastName;
     private LocalDate birthDate;
     private String function;
-    private Long salary;
+    private Double salary;
     private Genre genre;
 
     public String getFirstName() {
@@ -32,11 +31,11 @@ public class Employee {
         return genre;
     }
 
-    public Long getSalary() {
+    public Double getSalary() {
         return salary;
     }
 
-    public void setSalary(Long salary) {
+    public void setSalary(Double salary) {
         this.salary = salary;
     }
 
@@ -44,18 +43,28 @@ public class Employee {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Employee employee = (Employee) o;
-        return Objects.equals(firstName, employee.firstName) &&
-                Objects.equals(lastName, employee.lastName) &&
-                Objects.equals(birthDate, employee.birthDate) &&
-                Objects.equals(function, employee.function) &&
-                Objects.equals(salary, employee.salary) &&
-                genre == employee.genre;
+
+        if (birthDate != null ? !birthDate.equals(employee.birthDate) : employee.birthDate != null) return false;
+        if (firstName != null ? !firstName.equals(employee.firstName) : employee.firstName != null) return false;
+        if (function != null ? !function.equals(employee.function) : employee.function != null) return false;
+        if (genre != employee.genre) return false;
+        if (lastName != null ? !lastName.equals(employee.lastName) : employee.lastName != null) return false;
+        if (salary != null ? !salary.equals(employee.salary) : employee.salary != null) return false;
+
+        return true;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName, birthDate, function, salary, genre);
+        int result = firstName != null ? firstName.hashCode() : 0;
+        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        result = 31 * result + (birthDate != null ? birthDate.hashCode() : 0);
+        result = 31 * result + (function != null ? function.hashCode() : 0);
+        result = 31 * result + (salary != null ? salary.hashCode() : 0);
+        result = 31 * result + (genre != null ? genre.hashCode() : 0);
+        return result;
     }
 
     public static class EmployeeBuilder {
@@ -89,7 +98,7 @@ public class Employee {
             return this;
         }
 
-        public EmployeeBuilder withSalary(Long salary) {
+        public EmployeeBuilder withSalary(Double salary) {
             employee.salary = salary;
             return this;
         }

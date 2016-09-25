@@ -1,11 +1,11 @@
-package business_logic;
+package session1.solution.business_logic;
 
-import entity.Employee;
 import org.junit.Test;
+import session1.solution.entity.Employee;
 
 import java.util.List;
 
-import static entity.Employee.EmployeeBuilder.employee;
+import static session1.solution.entity.Employee.EmployeeBuilder.employee;
 import static java.time.LocalDate.of;
 import static java.time.Month.*;
 import static java.util.Arrays.asList;
@@ -74,7 +74,7 @@ public class EmployeeComparatorBuilderTest {
     }
 
     @Test
-    public void givenAListOfEmployees_whenSortingThemDesscendingByAge_thenTheEmployeesAreSortedCorrectly() {
+    public void givenAListOfEmployees_whenSortingThemDescendingByAge_thenTheEmployeesAreSortedCorrectly() {
         List<Employee> employees = asList(
                 employee().withBirthDate(of(1992, JANUARY, 14)).build(),
                 employee().withBirthDate(of(1992, MARCH, 23)).build(),
