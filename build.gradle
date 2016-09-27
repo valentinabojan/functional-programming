@@ -1,16 +1,18 @@
 group 'cegeka'
 version '1.0-SNAPSHOT'
 
-apply plugin: 'java'
+allprojects {
+    apply plugin: 'java'
 
-sourceCompatibility = 1.8
-version = '1.0'
+    sourceCompatibility = 1.8
+    version = '1.0'
 
-repositories {
-    mavenCentral()
-}
+    repositories {
+        mavenCentral()
+    }
 
-dependencies {
-    compile 'org.assertj:assertj-core:3.2.0'
-    compile 'junit:junit:4.12'
+    dependencies {
+        compile 'org.assertj:assertj-core:3.2.0'
+        compile 'junit:junit:4.12'
+    }
 }
