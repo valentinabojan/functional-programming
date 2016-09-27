@@ -7,4 +7,5 @@ This repository contains some exercises meant to serve as practice for a 'Functi
 ## Content
 
 For each chapter/session, there are two modules: one with exercises and one with solutions.
+
 1. Hello, Lambda Expressions
