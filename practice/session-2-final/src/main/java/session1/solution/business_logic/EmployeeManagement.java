@@ -8,6 +8,22 @@ import java.util.stream.Collectors;
 
 public class EmployeeManagement {
 
+    public void printReportBody(List<Employee> employees) {
+        employees
+                .stream()
+                .forEach(this::printReportLine);
+    }
+
+    private void printReportLine(Employee employee) {
+        System.out.println(employee.getFirstName()
+                + " "
+                + employee.getLastName()
+                + ", "
+                + employee.getFunction()
+                + " - "
+                + employee.getSalary());
+    }
+
     // TODO 2: Filter employees by their genre using Predicate.class inside a filter
     public List<Employee> filterByGender(List<Employee> employees, Genre genre) {
         return employees
