@@ -1,4 +1,6 @@
 rootProject.name = 'functional-programming'
 include 'practice:session-1-final',
-        'practice:session-1-start'
+        'practice:session-1-start',
+        'practice:session-2-start',
+        'practice:session-2-final'
 

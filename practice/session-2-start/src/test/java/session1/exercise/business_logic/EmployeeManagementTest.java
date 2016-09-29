@@ -1,14 +1,13 @@
-package session1.solution.business_logic;
+package session1.exercise.business_logic;
 
 import org.junit.Test;
-import session1.solution.entity.Employee;
+import session1.exercise.entity.Employee;
 
 import java.util.List;
-import java.util.function.BiConsumer;
 
-import static session1.solution.entity.Employee.EmployeeBuilder.employee;
-import static session1.solution.entity.Genre.FEMALE;
-import static session1.solution.entity.Genre.MALE;
+import static session1.exercise.entity.Employee.EmployeeBuilder.employee;
+import static session1.exercise.entity.Genre.FEMALE;
+import static session1.exercise.entity.Genre.MALE;
 import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThat;
 
