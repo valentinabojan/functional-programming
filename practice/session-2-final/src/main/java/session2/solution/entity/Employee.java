@@ -1,4 +1,4 @@
-package session1.solution.entity;
+package session2.solution.entity;
 
 import java.time.LocalDate;
 

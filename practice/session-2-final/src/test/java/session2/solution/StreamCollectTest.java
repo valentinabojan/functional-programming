@@ -1,4 +1,4 @@
-package session1.solution;
+package session2.solution;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Test;

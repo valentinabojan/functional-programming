@@ -1,4 +1,4 @@
-package session1.exercise.entity;
+package session2.solution.entity;
 
 public enum Genre {
     MALE,
