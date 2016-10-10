@@ -18,11 +18,12 @@ public class EmployeeManagement {
 
     // TODO 2: Increase the salary of each employee
     public List<Employee> increaseSalary(List<Employee> employees, Double percentage) {
-        employees
-                .stream()
-                .forEach(employee -> employee.setSalary(increaseAmount(employee.getSalary(), percentage)));
-
-        return employees;
+        return employees.stream()
+                .map(employee -> {
+                    employee.setSalary(increaseAmount(employee.getSalary(), percentage));
+                    return employee;
+                })
+                .collect(Collectors.toList());
     }
 
     // TODO 3: Filter employees by their genre
