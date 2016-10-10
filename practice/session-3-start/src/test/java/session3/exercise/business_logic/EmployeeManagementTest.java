@@ -1,8 +1,8 @@
 package session3.exercise.business_logic;
 
-import org.assertj.core.groups.Tuple;
 import org.junit.Test;
 import session3.exercise.entity.Employee;
+import session3.exercise.entity.Pair;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -35,13 +35,13 @@ public class EmployeeManagementTest {
                 employee().withFirstName("Paul").withLastName("James").withFunction(MANAGER).withDepartment("Dept 2").build()
         );
 
-        Map<Tuple, List<String>> expectedResult = Collections.unmodifiableMap(Stream.of(
-                new SimpleEntry<>(new Tuple("Dept 1", MANAGER), asList("Bob Smith")),
-                new SimpleEntry<>(new Tuple("Dept 1", DEVELOPER), asList("John Doe", "Mary Dean")),
-                new SimpleEntry<>(new Tuple("Dept 2", MANAGER), asList("Anne Marie", "Paul James")))
+        Map<Pair, List<String>> expectedResult = Collections.unmodifiableMap(Stream.of(
+                new SimpleEntry<>(new Pair("Dept 1", MANAGER), asList("Bob Smith")),
+                new SimpleEntry<>(new Pair("Dept 1", DEVELOPER), asList("John Doe", "Mary Dean")),
+                new SimpleEntry<>(new Pair("Dept 2", MANAGER), asList("Anne Marie", "Paul James")))
                 .collect(Collectors.toMap(SimpleEntry::getKey, SimpleEntry::getValue)));
 
-        Map<Tuple, List<String>> actualResult = new EmployeeManagement().getEmployeesNameGroupedByDepartmentAndFunction(employees);
+        Map<Pair, List<String>> actualResult = new EmployeeManagement().getEmployeesNameGroupedByDepartmentAndFunction(employees);
 
         assertThat(actualResult).isEqualTo(expectedResult);
     }
@@ -59,13 +59,13 @@ public class EmployeeManagementTest {
                 employee().withFirstName("Paul").withLastName("James").withFunction(MANAGER).withDepartment("Dept 2").build()
         );
 
-        Map<Tuple, Long> expectedResult = Collections.unmodifiableMap(Stream.of(
-                new SimpleEntry<>(new Tuple("Dept 1", MANAGER), 1L),
-                new SimpleEntry<>(new Tuple("Dept 1", DEVELOPER), 2L),
-                new SimpleEntry<>(new Tuple("Dept 2", MANAGER), 2L))
+        Map<Pair, Long> expectedResult = Collections.unmodifiableMap(Stream.of(
+                new SimpleEntry<>(new Pair("Dept 1", MANAGER), 1L),
+                new SimpleEntry<>(new Pair("Dept 1", DEVELOPER), 2L),
+                new SimpleEntry<>(new Pair("Dept 2", MANAGER), 2L))
                 .collect(Collectors.toMap(SimpleEntry::getKey, SimpleEntry::getValue)));
 
-        Map<Tuple, Long> actualResult = new EmployeeManagement().countEmployeesGroupedByDepartmentAndFunction(employees);
+        Map<Pair, Long> actualResult = new EmployeeManagement().countEmployeesGroupedByDepartmentAndFunction(employees);
 
         assertThat(actualResult).isEqualTo(expectedResult);
     }
