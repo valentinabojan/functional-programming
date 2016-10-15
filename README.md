@@ -6,7 +6,13 @@ This repository contains some exercises meant to serve as practice for a 'Functi
 
 ## Content
 
-For each chapter/session, there are two modules: one with exercises and one with solutions.
+For each chapter/session, there are two modules: one with exercises and one with solutions. Each exercise has tests thatwereimplemented to chack the validity of the provided solution.
 
 1. Hello, Lambda Expressions
 2. Using Collections
+3. Strings, Comparators and Filters
+4. Designing with Lambda Expressions
+
+## Support
+
+All the reading group sessions have as support several presentations that can be found at the following address: https://drive.google.com/drive/folders/0B6lcgX18hF6BRTdoVEhxX0s0YW8?usp=sharing
