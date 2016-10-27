@@ -12,6 +12,7 @@ For each chapter/session, there are two modules: one with exercises and one with
 2. Using Collections
 3. Strings, Comparators and Filters
 4. Designing with Lambda Expressions
+5. Working with Resources
 
 ## Support
 
