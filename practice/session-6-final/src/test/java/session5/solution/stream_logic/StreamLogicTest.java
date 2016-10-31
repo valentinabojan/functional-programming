@@ -1,0 +1,39 @@
+package session5.solution.stream_logic;
+
+import org.junit.Test;
+import session6.solution.stream_logic.StreamLogic;
+
+import java.util.List;
+
+import static java.util.Arrays.asList;
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class StreamLogicTest {
+
+    @Test
+    public void givenAStartingNumberOf0AndALimit_whenGenerateEvenNumbers_thenTheCorrectResultListIsReturned() {
+        List<Integer> expectedResult = asList(0, 2, 4, 6, 8, 10);
+
+        List<Integer> actualResult = new StreamLogic().generateEvenNumbers(0, 6);
+
+        assertThat(actualResult).isEqualTo(expectedResult);
+    }
+
+    @Test
+    public void givenAStartingNumberOf5AndALimit_whenGenerateEvenNumbers_thenTheCorrectResultListIsReturned() {
+        List<Integer> expectedResult = asList(6, 8, 10, 12, 14, 16, 18, 20);
+
+        List<Integer> actualResult = new StreamLogic().generateEvenNumbers(5, 8);
+
+        assertThat(actualResult).isEqualTo(expectedResult);
+    }
+
+    @Test
+    public void givenALimit_whenGenerateFibonacciNumbers_thenTheCorrectResultListIsReturned() {
+        List<Integer> expectedResult = asList(1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610);
+
+        List<Integer> actualResult = new StreamLogic().generateFibonacciNumbers(15);
+
+        assertThat(actualResult).isEqualTo(expectedResult);
+    }
+}
