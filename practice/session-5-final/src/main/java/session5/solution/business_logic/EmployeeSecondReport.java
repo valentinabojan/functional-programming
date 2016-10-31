@@ -23,7 +23,7 @@ public class EmployeeSecondReport implements AutoCloseable {
     @Override
     public void close() throws Exception {
         fileWriter.write("\n" + "==========" + "\n");
-        fileWriter.write("" + LocalDate.now());
+        fileWriter.write("" + LocalDate.now().getYear());
         fileWriter.close();
     }
 }

@@ -14,7 +14,7 @@ import static java.util.stream.Collectors.*;
 public class EmployeeReport {
 
     // TODO 6: Write a report that has as header ""==== Annual Employee Report ====".
-    // As footer use "==========" followed by the current date on a new line
+    // As footer use "==========" followed by the current year on a new line
     // The body is given by the supplier created by getReportSupplierForEmployees method
     public void writeEmployeeReport(String reportName, Supplier<String> supplier) {
         try (FileWriter fileWriter = new FileWriter(reportName)) {
@@ -23,7 +23,7 @@ public class EmployeeReport {
             fileWriter.write(supplier.get());
 
             fileWriter.write("\n" + "==========" + "\n");
-            fileWriter.write("" + LocalDate.now());
+            fileWriter.write("" + LocalDate.now().getYear());
         } catch (IOException e) {
             e.getStackTrace();
         }
