@@ -1,4 +1,4 @@
-package session5.solution.stream_logic;
+package session6.solution.stream_logic;
 
 import org.junit.Test;
 import session6.solution.stream_logic.StreamLogic;

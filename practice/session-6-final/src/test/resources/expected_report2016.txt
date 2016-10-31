@@ -1,5 +1,0 @@
-==== Annual Employee Report ====
-Dept 1 600.0
-Dept 2 900.0
-==========
-2016
