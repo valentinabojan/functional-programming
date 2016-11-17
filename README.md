@@ -13,6 +13,8 @@ For each chapter/session, there are two modules: one with exercises and one with
 3. Strings, Comparators and Filters
 4. Designing with Lambda Expressions
 5. Working with Resources
+6. Being Lazy
+7. Optimizing Recursions
 
 ## Support
 
